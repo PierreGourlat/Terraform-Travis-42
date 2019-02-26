@@ -21,8 +21,3 @@ before_deploy:
   - export PATH="~/bin:$PATH"
 deploy:
    # Deploy using terraform
-   - provider: script
-      skip_cleanup: true
-      script: terraform apply ./terraform
-      on:
-        branch: master
