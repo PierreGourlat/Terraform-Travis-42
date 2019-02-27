@@ -9,19 +9,19 @@ services:
 
 script:
   # Build docker image
+  - wget https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_linux_amd64.zip
+  - unzip terraform_0.10.6_linux_amd64.zip
+  - sudo mv terraform /usr/local/bin/
+  - terraform init
+  - terraform plan
 post_install:
   # Push docker image to Docker Hub
 
 before_deploy:
    # Install terraform
-  - wget https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_linux_amd64.zip
-  - unzip terraform_0.10.6_linux_amd64.zip
-  - sudo mv terraform /usr/local/bin/
 deploy:
    # Deploy using terraform
   - provider: script
     script:
-      - terraform init
-      - terraform plan
       - ./terraform apply -input=false -auto-approve
     skip_cleanup: true
