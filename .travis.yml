@@ -2,7 +2,7 @@
 #test
 sudo: required
 
-language: php
+#language: php
 
 services:
    - docker
