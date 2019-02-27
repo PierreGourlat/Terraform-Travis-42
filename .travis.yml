@@ -9,16 +9,16 @@ services:
 
 script:
   # Build docker image
+  - wget https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_linux_amd64.zip
+  - unzip terraform_0.10.6_linux_amd64.zip
   - whereis terraform
-  - ./terraform init
-  - ./terraform plan
+  - ./terraform init -input=false -auto-approve
+  - ./terraform plan -input=false -auto-approve
 post_install:
   # Push docker image to Docker Hub
 
 before_deploy:
    # Install terraform
-  - wget https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_linux_amd64.zip
-  - unzip terraform_0.10.6_linux_amd64.zip
 deploy:
    # Deploy using terraform
   - provider: script
