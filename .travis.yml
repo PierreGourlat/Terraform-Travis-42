@@ -9,8 +9,8 @@ services:
 
 script:
   # Build docker image
-  - ./terraform init
-  - ./terraform plan
+  - terraform init
+  - terraform plan
 post_install:
   # Push docker image to Docker Hub
 
@@ -24,5 +24,5 @@ deploy:
    # Deploy using terraform
   - provider: script
     script:
-      - ./terraform apply -input=false -auto-approve
+      - terraform apply -input=false -auto-approve
     skip_cleanup: true
