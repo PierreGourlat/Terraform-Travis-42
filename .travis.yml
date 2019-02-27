@@ -1,22 +1,18 @@
 # travis.yml
 #test
 sudo: required
-
 language: php
-
 services:
    - docker
-
 script:
   # Build docker image
   - wget https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_linux_amd64.zip
   - unzip terraform_0.10.6_linux_amd64.zip
   - sudo mv terraform /usr/local/bin/
   - cd ./devops-crashcourse-terraform
-  - echo access_key
   - terraform init
   - terraform plan
-  - terraform apply -input=false -auto-approve
+  - terraform destroy -input=false -auto-approve
 post_install:
   # Push docker image to Docker Hub
 

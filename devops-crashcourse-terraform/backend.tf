@@ -25,7 +25,6 @@ variable db_snapshot {
 }
 
 
-
 ### Resources
 resource "aws_db_subnet_group" "mysql" {
   # TO DO
