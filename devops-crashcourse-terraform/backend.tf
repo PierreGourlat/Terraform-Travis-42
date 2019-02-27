@@ -26,8 +26,8 @@ variable db_snapshot {
 
 terraform {
   backend "s3" {
-    bucket = "testtravis"
-    key    = "TPtravis/terraform.tfstate"
+    bucket = "cdcitravistest"
+    key    = "state/terraform.tfstate"
     region = "eu-west-1"
   }
 }
