@@ -2,22 +2,24 @@
 #test
 sudo: required
 
+language: php
 
 services:
    - docker
 
 script:
   # Build docker image
+  - wget https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_linux_amd64.zip
+  - unzip terraform_0.10.6_linux_amd64.zip
+  - pwd
+  - ./terraform init
+  - ./terraform plan
+  - ./terraform apply
 post_install:
   # Push docker image to Docker Hub
 
 before_deploy:
    # Install terraform
-  - wget https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_linux_amd64.zip
-  - unzip terraform_0.10.6_linux_amd64.zip
-  - ./terraform init
-  - ./terraform plan
-  - ./terraform apply
 deploy:
    # Deploy using terraform
   - provider: script
