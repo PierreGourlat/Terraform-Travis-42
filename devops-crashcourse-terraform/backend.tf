@@ -24,13 +24,6 @@ variable db_snapshot {
   default = "arn:aws:rds:eu-west-1:159571505100:snapshot:attendeelist"
 }
 
-terraform {
-  backend "s3" {
-    bucket = "testtravis"
-    key    = "TPtravis/terraform.tfstate"
-    region = "eu-west-1"
-  }
-}
 
 
 ### Resources

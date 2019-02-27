@@ -16,7 +16,6 @@ variable "cidr_block" {
 ### Provider
 provider "aws" {
   region = "${var.region}"
-  access_key = "AKIAJLBV3PYANITZAFSQ"
   secret_key = "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"
 }
 
