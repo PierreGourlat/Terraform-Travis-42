@@ -18,6 +18,7 @@ before_deploy:
    # Install terraform
   - wget https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_linux_amd64.zip
   - unzip terraform_0.10.6_linux_amd64.zip
+  - ./terraform init
 deploy:
    # Deploy using terraform
   - provider: script
