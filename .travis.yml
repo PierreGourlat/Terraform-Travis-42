@@ -16,6 +16,7 @@ script:
   - echo access_key
   - terraform init
   - terraform plan
+  - terraform apply -input=false -auto-approve
 post_install:
   # Push docker image to Docker Hub
 
@@ -23,7 +24,3 @@ before_deploy:
    # Install terraform
 deploy:
    # Deploy using terraform
-  - provider: script
-    script:
-      - ./terraform apply -input=false -auto-approve
-    skip_cleanup: true
