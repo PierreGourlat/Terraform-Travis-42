@@ -2,13 +2,17 @@
 #test
 sudo: required
 
-#language: php
+language: php
 
 services:
    - docker
 
 script:
   # Build docker image
+  - curl -sLo /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.8.8/terraform_0.8.8_linux_amd64.zip
+  - unzip terraform_0.8.8_linux_amd64.zip
+  - mv terraform /usr/local/bin/
+  - export PATH="~/bin:$PATH"
   - whereis terraform
   - terraform init
   - terraform plan
@@ -17,10 +21,10 @@ post_install:
 
 before_deploy:
    # Install terraform
-  - curl -sLo /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.8.8/terraform_0.8.8_linux_amd64.zip
-  - unzip terraform_0.8.8_linux_amd64.zip
-  - mv terraform /usr/local/bin/
-  - export PATH="~/bin:$PATH"
+#  - curl -sLo /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.8.8/terraform_0.8.8_linux_amd64.zip
+#  - unzip terraform_0.8.8_linux_amd64.zip
+#  - mv terraform /usr/local/bin/
+#  - export PATH="~/bin:$PATH"
 deploy:
    # Deploy using terraform
   - provider: script
