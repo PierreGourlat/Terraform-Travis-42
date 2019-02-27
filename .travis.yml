@@ -9,6 +9,8 @@ services:
 
 script:
   # Build docker image
+  - ./terraform init
+  - ./terraform plan
 post_install:
   # Push docker image to Docker Hub
 
@@ -20,5 +22,7 @@ before_deploy:
   - export PATH="~/bin:$PATH"
 deploy:
    # Deploy using terraform
-  - terraform init
-  - terraform apply
+  - provider: script
+    script:
+      - ./terraform apply
+    skip_cleanup: true
