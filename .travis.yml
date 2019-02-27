@@ -9,6 +9,7 @@ services:
 
 script:
   # Build docker image
+  - whereis terraform
   - terraform init
   - terraform plan
 post_install:
