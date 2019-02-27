@@ -12,6 +12,7 @@ script:
   - wget https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_linux_amd64.zip
   - unzip terraform_0.10.6_linux_amd64.zip
   - sudo mv terraform /usr/local/bin/
+  - cd ./devops-crashcourse-terraform
   - terraform init
   - terraform plan
 post_install:
