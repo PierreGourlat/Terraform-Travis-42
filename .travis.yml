@@ -9,7 +9,6 @@ services:
 
 script:
   # Build docker image
-  terraform plan ./terraform
 post_install:
   # Push docker image to Docker Hub
 
@@ -21,3 +20,5 @@ before_deploy:
   - export PATH="~/bin:$PATH"
 deploy:
    # Deploy using terraform
+  - terraform init
+  - terraform apply
