@@ -2,7 +2,7 @@
 
 $table = "mytable";
 
-$hello = "Hello world";
+$hello = "Hello Pierre";
 $date = date('Y/m/d H:i:s');
 
 $serverIP = $_SERVER['SERVER_ADDR'];
