@@ -17,6 +17,6 @@ apt-get install docker-ce docker-ce-cli containerd.io -y
 
 apt-get install docker-compose -y
 cd home/ubuntu
-git clone https://github.com/maur1th/simple-php-app
-cd simple-php-app
+git clone https://github.com/PierreGourlat/Terraform-Travis-42.git
+cd Terraform-Travis-42/simple-nginx-php-fpm
 docker-compose up -d
